@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 
-
+#include "testcreationpatterns.h"
 #include "adapter.h"
 
 MainWindow::MainWindow(QWidget *parent)

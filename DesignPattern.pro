@@ -32,3 +32,4 @@ HEADERS += \
 
 include (./structuralpatterns/structuralpatterns.pri)
 include (./cretationalpatterns/cretationalpatterns.pri)
+include (./test/test.pri)

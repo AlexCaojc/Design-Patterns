@@ -39,19 +39,19 @@ public:
 
 /* 修改返回类型为指针类型*/
 #if 0
-class CSignleton
+class CSingleton
 {
 private:
-    CSignleton() {}
+    CSingleton() {}
 
 public:
-    static CSignleton *instance()
+    static CSingleton *instance()
     {
 #if 0
         static CSignleton instance;//静态区直接存放单例对象
         return &instance;
 #endif
-        static CSignleton *instance = new CSignleton();//静态区存放的是单例对象的地址
+        static CSingleton *instance = new CSingleton();//静态区存放的是单例对象的地址
         return instance;
     }
 };
@@ -60,30 +60,45 @@ public:
 /*显式地声明类的拷贝构造函数，并重载赋值运算符*/
 
 #if 0
-class CSignleton
+class CSingleton
 {
 private:
-    CSignleton() {}
-    CSignleton(const CSignleton&);// 无需实现
-    operator =(const CSignleton&);// 无需实现
+    CSingleton() {}
+    CSingleton(const CSingleton&);// 无需实现
+    operator =(const CSingleton&);// 无需实现
 
 public:
-    static CSignleton &instance()
+    static CSingleton &instance()
     {
-        static CSignleton instance;
+        static CSingleton instance;
         return instance;
     }
 
     void doSomething()
     {
-
+//        cout
     }
 };
+
 #endif
 
-class CSignleton
+/*
+ * 懒汉式饿汉式，头文件通用
+*/
+
+
+#if 1
+class CSingleton
 {
+private:
+    CSingleton() {}
+
 public:
-    CSignleton() {}
+    static CSingleton *instance();
+
+private:
+    static CSingleton* m_instance;
 };
+
+#endif
 #endif // SINGLETON_H
